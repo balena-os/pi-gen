@@ -350,7 +350,7 @@ follows:
  * Add SKIP files to the stages you don't want to build. For example, if you're
    basing your image on the lite image you would add these to stages 3, 4 and 5.
  * Run build.sh to build all stages
- * Add SKIP files to the earlier successfully built stages
+		 * Add SKIP files to the earlier successfully built stages
  * Modify the last stage
  * Rebuild just the last stage using ```sudo CLEAN=1 ./build.sh```
  * Once you're happy with the image you can remove the SKIP_IMAGES files and
