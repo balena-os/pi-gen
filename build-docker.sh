@@ -31,6 +31,9 @@ do
 done
 
 IMG_NAME="Raspbian-Fin"
+# Ensure that the configuration file is an absolute path
+CONFIG_FILE=$(realpath -s "$CONFIG_FILE")
+
 # Ensure that the confguration file is present
 if test -z "${CONFIG_FILE}"; then
 	echo "Configuration file need to be present in '${DIR}/config' or path passed as parameter"
@@ -64,7 +67,7 @@ if [ "${CONTAINER_EXISTS}" != "" ] && [ "${CONTINUE}" != "1" ]; then
 fi
 
 # Modify original build-options to allow config file to be mounted in the docker container
-BUILD_OPTS="$(echo ${BUILD_OPTS:-} | sed -E 's@\-c\s?([^ ]+)@-c /config@')"
+BUILD_OPTS="$(echo "${BUILD_OPTS:-}" | sed -E 's@\-c\s?([^ ]+)@-c /config@')"
 
 ${DOCKER} build -t pi-gen "${DIR}"
 if [ "${CONTAINER_EXISTS}" != "" ]; then
@@ -74,7 +77,7 @@ if [ "${CONTAINER_EXISTS}" != "" ]; then
 		--volumes-from="${CONTAINER_NAME}" --name "${CONTAINER_NAME}_cont" \
 		pi-gen \
 		bash -e -o pipefail -c "dpkg-reconfigure qemu-user-static &&
-	cd /pi-gen; ./build.sh ${BUILD_OPTS} ;
+	cd /pi-gen; ./build.sh ${BUILD_OPTS} &&
 	rsync -av work/*/build.log deploy/" &
 	wait "$!"
 else
