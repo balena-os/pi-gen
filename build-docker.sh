@@ -14,10 +14,6 @@ if ! $DOCKER ps >/dev/null; then
 fi
 set -e
 
-if [ -f config ]; then
-	source config
-fi
-
 while getopts "c:" flag
 do
 	case "$flag" in
@@ -30,6 +26,7 @@ do
 	esac
 done
 
+IMG_NAME="Raspbian-Fin"
 CONTAINER_NAME=${CONTAINER_NAME:-pigen_work}
 CONTINUE=${CONTINUE:-0}
 PRESERVE_CONTAINER=${PRESERVE_CONTAINER:-0}
