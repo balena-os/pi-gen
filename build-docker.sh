@@ -43,16 +43,11 @@ else
 	# shellcheck disable=SC1090
 	source "${CONFIG_FILE}"
 fi
-
+IMG_NAME="Raspbian-Fin"
 CONTAINER_NAME=${CONTAINER_NAME:-pigen_work}
 CONTINUE=${CONTINUE:-0}
 PRESERVE_CONTAINER=${PRESERVE_CONTAINER:-0}
 
-if [ -z "${IMG_NAME}" ]; then
-	echo "IMG_NAME not set in 'config'" 1>&2
-	echo 1>&2
-exit 1
-fi
 
 # Ensure the Git Hash is recorded before entering the docker container
 GIT_HASH=${GIT_HASH:-"$(git rev-parse HEAD)"}
