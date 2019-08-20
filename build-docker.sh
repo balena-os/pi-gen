@@ -1,5 +1,10 @@
 #!/bin/bash -e
 
+mount binfmt_misc -t binfmt_misc /proc/sys/fs/binfmt_misc && echo 1 > /proc/sys/fs/binfmt_misc/status
+for i in $(seq 1 10); do
+  mknod -m640 /dev/loop$i b 7 $i
+done
+
 BUILD_OPTS="$*"
 
 DOCKER="docker"
