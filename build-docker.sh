@@ -1,5 +1,10 @@
 #!/bin/bash -e
 
+mount binfmt_misc -t binfmt_misc /proc/sys/fs/binfmt_misc && echo 1 > /proc/sys/fs/binfmt_misc/status
+for i in $(seq 1 10); do
+  mknod -m640 /dev/loop$i b 7 $i
+done
+
 BUILD_OPTS="$*"
 
 DOCKER="docker"
@@ -14,10 +19,6 @@ if ! $DOCKER ps >/dev/null; then
 fi
 set -e
 
-if [ -f config ]; then
-	source config
-fi
-
 while getopts "c:" flag
 do
 	case "$flag" in
@@ -30,6 +31,7 @@ do
 	esac
 done
 
+IMG_NAME="Raspbian-Fin"
 CONTAINER_NAME=${CONTAINER_NAME:-pigen_work}
 CONTINUE=${CONTINUE:-0}
 PRESERVE_CONTAINER=${PRESERVE_CONTAINER:-0}
