@@ -78,7 +78,7 @@ The following environment variables are supported:
    be built and cached.  Note, `WORK_DIR` stores a complete copy of the target
    system for each build stage, amounting to tens of gigabytes in the case of
    Raspbian.
-   
+
    **CAUTION**: If your working directory is on an NTFS partition you probably won't be able to build. Make sure this is a proper Linux filesystem.
 
  * `DEPLOY_DIR`  (Default: `"$BASE_DIR/deploy"`)
@@ -97,6 +97,10 @@ The following environment variables are supported:
  * `LOCALE_DEFAULT` (Default: "en_GB.UTF-8" )
 
    Default system locale.
+
+ * `HOSTNAME` (Default: "raspberrypi" )
+
+   Setting the hostname to the specified value.
 
  * `KEYBOARD_KEYMAP` (Default: "gb" )
 
