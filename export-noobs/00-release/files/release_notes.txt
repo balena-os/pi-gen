@@ -1,5 +1,113 @@
 UNRELEASED:
   *
+2019-09-26:
+  * rpi-eeprom included
+    - This will automatically update the SPI EEPROM on the Raspberry Pi 4 to the latest stable version.
+       See https://rpf.io/eeprom for more information.
+  * New icon theme for file manager icons
+  * Appearance Settings - option for identical desktop on both monitors
+  * Appearance Settings - option to show different desktop icons on both monitors
+  * Taskbar automatically moved to monitor 0 if monitor 1 not found at boot
+  * Switching of audio output between two HDMI devices added to volume plugin
+  * Switching of audio input devices added to volume plugin
+  * .asoundrc (ALSA config file) now uses 'plug' values to support more devices
+  * Audio Settings tool modified to integrate more closely with volume plugin to reduce duplicated code
+  * Screen Configuration tool now shows separate menus for resolution and refresh rate
+  * Primary and active monitor settings removed from Screen Configuration tool
+  * Overscan support added for FKMS driver
+  * New keyboard shortcuts added - Ctrl-Alt-End brings up shutdown menu; Ctrl-Alt-M moves taskbar between monitors
+  * Latest changes to Bluez ALSA interface integrated to improve connection to Bluetooth audio devices
+  * Mousepad used as simple text editor instead of leafpad
+  * Version 3.2 of Thonny added
+  * Version 74 of Chromium added
+  * Version 3.0.8 of VLC added
+  * Version 32.0.0.255 of Flash player added
+  * Version 6.5.0 of RealVNC Server added
+  * Version 6.19.715 of RealVNC Viewer added (full image only)
+  * Version 12.0.1 of Mathematica added (full image only)
+  * Version 0.20.8 of NodeRED added (full image only)
+  * Version 3.1.0 of Sonic Pi added (full image only)
+  * Scratch 3 added (full image only)
+  * Bug fix - URL handling in Terminal
+  * Bug fix - octal values in SSIDs in network plugin
+  * Bug fix - remaining value in progress bar when transferring files
+  * Bug fix - integration of xarchiver tool with file manager
+  * Bug fix - start menu opening on incorrect monitor
+  * Bug fix - minimised applications wrongly displayed on taskbar on second monitor
+  * Bug fix - Bluetooth icon disappearing on x86 platforms when Bluetooth turned off
+  * Bug fix - Screen Configuration tool not shown on x86 platforms and settings not being saved
+  * Various translation updates
+  * Various minor bug fixes
+  * Epiphany/Web removed
+  * ntfs-3g included
+  * pciutils added
+  * Linux kernel 4.19.75
+  * Raspberry Pi firmware 01508e81ec1e918448227ca864616d56c430b46d
+2019-07-10:
+  * Clearer options for switching of Pi 4 video output in Raspberry Pi Configuration
+  * Option added to Appearance Settings to move taskbar to second monitor
+  * Option added to Recommended Software to restrict package installs by architecture
+  * New version of Adobe Flash player (32.0.0.223)
+  * Selection of screen refresh rates added to Screen Configuration
+  * Fix for missing text insertion cursor in LibreOffice on Pi 4
+  * Fix for Wi-fi interruption when Wi-fi icon on taskbar is clicked
+  * FIx for incorrect desktop background behind desktop login prompt
+  * Fix for segmentation faults when launching obconf and lxapperarance
+  * Fix for unclosed file pointer in Screen Configuration
+  * Fix for Bluetooth plugin freeze when large numbers of devices detected
+  * Fix for opening URLs not working in lxterminal
+  * Fix for start menu opening on incorrect monitor when launched from keyboard
+  * Fix for taskbar item not having [] removed when un-minimising on second monitor
+  * Fix for Chromium video playback and WebGL performance on Pi 4
+  * Remove 4kp60 option from Raspberry Pi Configuration
+  * Rename hdmi_enable_4k to hdmi_enable_4kp60 in /boot/config.txt and raspi-config
+  * Linux kernel 4.19.57
+  * Raspberry Pi firmware 356f5c2880a3c7e8774025aa6fc934a617553e7b
+2019-06-20:
+  * Based on Debian Buster
+  * Support for Raspberry Pi 4 hardware
+  * FKMS OpenGL desktop graphics driver and xcompmgr compositing window manager used when running on Raspberry Pi 4
+  * Screen Configuration application added for use with FKMS driver
+  * Raspberry Pi 4 video output options added to Raspberry Pi Configuration
+  * Uses new PiXflat UI theme for GTK and Openbox
+  * CPU activity gauge plugin no longer shown on taskbar by default
+  * CPU temperature gauge plugin added (not shown by default)
+  * USB ejecter and Bluetooth taskbar icons hidden when not appropriate
+  * Version 74.0.3729.157 of Chromium web browser included
+  * Version 32.0.0.207 of Flash player included
+  * IDLE Python IDE removed
+  * Wolfram Mathematica removed temporarily due to incompatibility with Buster
+  * Display of package sizes removed from Recommended Software
+  * Appearance Settings modified to support independent settings for two monitors
+  * Oracle Java 7 and 8 replaced with OpenJDK 11
+  * Miscellaneous small bug fixes
+  * On-board 5GHz WiFi blocked by rfkill by default
+    The block is removed when taking one of the following actions:
+    - Selecting a locale in the first run wizard
+    - Setting the WiFi country in the Raspberry Pi Configuration tool or the Network Settings applet
+    - Setting the WiFi country in raspi-config
+    - Providing a wpa_supplicant.conf file through the boot partition
+    - Running 'rfkill unblock wifi'
+  * Boot partition size set to 256M
+  * Linux kernel 4.19.50
+  * Raspberry Pi firmware 88ca9081f5e51cdedd16d5dbc85ed12a25123201
+2019-04-08:
+  * Chromium browser updated to version 72
+  * VLC media player updated to version 3.0.6
+  * RealVNC Server updated to version 6.4.0
+  * Flash player updated to version 32.0.0.156
+  * Performance improvements to SDL library
+  * Performance improvements to pixman library
+  * Option to set display underscan added to startup wizard
+  * Mounted external drives now displayed on desktop by default
+  * Network plugin modified for improved compatibility with wpa_passphrase
+  * SD Card Copier tweaks to reduce copy failures
+  * Various minor bug fixes and appearance tweaks
+  * Added ethtool
+  * Added rng-tools
+  * Add PINN restore support
+  * Linux kernel 4.14.98
+  * Raspberry Pi firmware f8939644f7bd3065068787f1f92b3f3c79cf3de9
 2018-11-13:
   * Two versions of image created - "base" image has no optional software packages included; "full" image has all optional packages
     - Removed from "base" image - LibreOffice, Thonny, Scratch, Scratch 2, Sonic Pi, Minecraft, Python Games, SmartSim, SenseHAT Emulator
