@@ -1,7 +1,7 @@
 #!/bin/bash -eu
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-mount binfmt_misc -t binfmt_misc /proc/sys/fs/binfmt_misc && echo 1 > /proc/sys/fs/binfmt_misc/status
+sudo mount binfmt_misc -t binfmt_misc /proc/sys/fs/binfmt_misc && echo 1 > /proc/sys/fs/binfmt_misc/status
 for i in $(seq 1 10); do
   if [ ! -b "/dev/loop$i" ]; then
     sudo mknod -m640 "/dev/loop$i" b 7 "$i"
